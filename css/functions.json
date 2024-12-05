@@ -83,7 +83,7 @@
     "mdn_url": "https://developer.mozilla.org/docs/Web/CSS/filter-function/contrast"
   },
   "counter()": {
-    "syntax": "counter( <custom-ident>, <counter-style>? )",
+    "syntax": "counter( <counter-name>, <counter-style>? )",
     "groups": [
       "CSS Lists and Counters"
     ],
@@ -91,7 +91,7 @@
     "mdn_url": "https://developer.mozilla.org/docs/Web/CSS/counter"
   },
   "counters()": {
-    "syntax": "counters( <custom-ident>, <string>, <counter-style>? )",
+    "syntax": "counters( <counter-name>, <string>, <counter-style>? )",
     "groups": [
       "CSS Lists and Counters"
     ],
@@ -121,7 +121,7 @@
     "groups": [
       "CSS Miscellaneous"
     ],
-    "status": "standard",
+    "status": "experimental",
     "mdn_url": "https://developer.mozilla.org/docs/Web/CSS/element"
   },
   "ellipse()": {
@@ -141,12 +141,12 @@
     "mdn_url": "https://developer.mozilla.org/docs/Web/CSS/env"
   },
   "fit-content()": {
-    "syntax": "fit-content( [ <length> | <percentage> ] )",
+    "syntax": "fit-content( <length-percentage [0,∞]> )",
     "groups": [
       "CSS Box Model"
     ],
     "status": "standard",
-    "mdn_url": "https://developer.mozilla.org/docs/Web/CSS/fit-content"
+    "mdn_url": "https://developer.mozilla.org/docs/Web/CSS/fit-content_function"
   },
   "grayscale()": {
     "syntax": "grayscale( <number-percentage> )",
@@ -266,7 +266,7 @@
     "mdn_url": "https://developer.mozilla.org/docs/Web/CSS/min"
   },
   "minmax()": {
-    "syntax": "minmax( [ <length> | <percentage> | min-content | max-content | auto ] , [ <length> | <percentage> | <flex> | min-content | max-content | auto ] )",
+    "syntax": "minmax( [ <length-percentage> | min-content | max-content | auto ] , [ <length-percentage> | <flex> | min-content | max-content | auto ] )",
     "groups": [
       "CSS Units",
       "CSS Lengths"
@@ -316,8 +316,16 @@
     "status": "standard",
     "mdn_url": "https://developer.mozilla.org/docs/Web/CSS/image/paint"
   },
+  "palette-mix()": {
+    "syntax": "palette-mix(<color-interpolation-method> , [ [normal | light | dark | <palette-identifier> | <palette-mix()> ] && <percentage [0,100]>? ]#{2})",
+    "groups": [
+      "CSS Fonts"
+    ],
+    "status": "standard",
+    "mdn_url": "https://developer.mozilla.org/docs/Web/CSS/font-palette/palette-mix"
+  },
   "perspective()": {
-    "syntax": "perspective( <length> )",
+    "syntax": "perspective( [ <length [0,∞]> | none ] )",
     "groups": [
       "CSS Transforms"
     ],
@@ -473,7 +481,7 @@
     "mdn_url": "https://developer.mozilla.org/docs/Web/CSS/transform-function/scaleZ"
   },
   "scroll()": {
-    "syntax": "scroll([<axis> || <scroller>]?)",
+    "syntax": "scroll( [ <scroller> || <axis> ]? )",
     "groups": [
       "CSS Animations"
     ],

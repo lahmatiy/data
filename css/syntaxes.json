@@ -8,6 +8,9 @@
   "acos()": {
     "syntax": "acos( <calc-sum> )"
   },
+  "anchor-name": {
+    "syntax": "<dashed-ident>"
+  },
   "alpha-value": {
     "syntax": "<number> | <percentage>"
   },
@@ -63,7 +66,7 @@
     "syntax": "[ <line-names>? [ <fixed-size> | <fixed-repeat> ] ]* <line-names>? <auto-repeat>\n[ <line-names>? [ <fixed-size> | <fixed-repeat> ] ]* <line-names>?"
   },
   "axis": {
-    "syntax": "block | inline | vertical | horizontal"
+    "syntax": "block | inline | x | y"
   },
   "baseline-position": {
     "syntax": "[ first | last ]? baseline"
@@ -129,7 +132,7 @@
     "syntax": "<url>"
   },
   "color": {
-    "syntax": "<rgb()> | <rgba()> | <hsl()> | <hsla()> | <hwb()> | <lab()> | <lch()> | <light-dark()> | <hex-color> | <named-color> | currentcolor | <deprecated-system-color>"
+    "syntax": "<rgb()> | <rgba()> | <hsl()> | <hsla()> | <hwb()> | <lab()> | <lch()> | <oklab()> | <oklch()> | <color()> | <hex-color> | <named-color> | <system-color> | <deprecated-system-color> | currentcolor | transparent"
   },
   "color-stop": {
     "syntax": "<color-stop-length> | <color-stop-angle>"
@@ -194,6 +197,9 @@
   "contrast()": {
     "syntax": "contrast( [ <number-percentage> ] )"
   },
+  "coord-box": {
+    "syntax": "<paint-box> | view-box"
+  },
   "cos()": {
     "syntax": "cos( <calc-sum> )"
   },
@@ -226,6 +232,9 @@
   },
   "declaration-list": {
     "syntax": "[ <declaration>? ';' ]* <declaration>?"
+  },
+  "dasharray": {
+    "syntax": "[ [ <length-percentage> | <number> ]+ ]#"
   },
   "deprecated-system-color": {
     "syntax": "ActiveBorder | ActiveCaption | AppWorkspace | Background | ButtonFace | ButtonHighlight | ButtonShadow | ButtonText | CaptionText | GrayText | Highlight | HighlightText | InactiveBorder | InactiveCaption | InactiveCaptionText | InfoBackground | InfoText | Menu | MenuText | Scrollbar | ThreeDDarkShadow | ThreeDFace | ThreeDHighlight | ThreeDLightShadow | ThreeDShadow | Window | WindowFrame | WindowText"
@@ -581,14 +590,23 @@
   "nth": {
     "syntax": "<an-plus-b> | even | odd"
   },
+  "offset-path": {
+    "syntax": "<ray()> | <url> | <basic-shape>"
+  },
   "opacity()": {
     "syntax": "opacity( [ <number-percentage> ] )"
+  },
+  "opacity-value": {
+    "syntax": "<number> | <percentage>"
   },
   "overflow-position": {
     "syntax": "unsafe | safe"
   },
   "outline-radius": {
     "syntax": "<length> | <percentage>"
+  },
+  "outline-line-style": {
+    "syntax": "none | dotted | dashed | solid | double | groove | ridge | inset | outset"
   },
   "page-body": {
     "syntax": "<declaration>? [ ; <page-body> ]? | <page-margin-box> <page-body>"
@@ -608,11 +626,20 @@
   "page-size": {
     "syntax": "A5 | A4 | A3 | B5 | B4 | JIS-B5 | JIS-B4 | letter | legal | ledger"
   },
+  "paint-box": {
+    "syntax": "<visual-box> | fill-box | stroke-box"
+  },
   "path()": {
     "syntax": "path( [ <fill-rule>, ]? <string> )"
   },
+  "paint": {
+    "syntax": "none | <color> | <url> [none | <color>]? | context-fill | context-stroke"
+  },
   "paint()": {
     "syntax": "paint( <ident>, <declaration-value>? )"
+  },
+  "palette-identifier": {
+    "syntax": "<dashed-ident>"
   },
   "perspective()": {
     "syntax": "perspective( [ <length [0,∞]> | none ] )"
@@ -625,6 +652,9 @@
   },
   "position": {
     "syntax": "[ [ left | center | right ] || [ top | center | bottom ] | [ left | center | right | <length-percentage> ] [ top | center | bottom | <length-percentage> ]? | [ [ left | right ] <length-percentage> ] && [ [ top | bottom ] <length-percentage> ] ]"
+  },
+  "position-area": {
+    "syntax": "[ left | center | right | span-left | span-right | x-start | x-end | span-x-start | span-x-end | x-self-start | x-self-end | span-x-self-start | span-x-self-end | span-all ] || [ top | center | bottom | span-top | span-bottom | y-start | y-end | span-y-start | span-y-end | y-self-start | y-self-end | span-y-self-start | span-y-self-end | span-all ] | [ block-start | center | block-end | span-block-start | span-block-end | span-all ] || [ inline-start | center | inline-end | span-inline-start | span-inline-end | span-all ] | [ self-block-start | center | self-block-end | span-self-block-start | span-self-block-end | span-all ] || [ self-inline-start | center | self-inline-end | span-self-inline-start | span-self-inline-end | span-all ] | [ start | center | end | span-start | span-end | span-all ]{1,2} | [ self-start | center | self-end | span-self-start | span-self-end | span-all ]{1,2}"
   },
   "pow()": {
     "syntax": "pow( <calc-sum>, <calc-sum> )"
@@ -731,11 +761,20 @@
   "scaleZ()": {
     "syntax": "scaleZ( [ <number> | <percentage> ] )"
   },
+  "scope-start": {
+    "syntax": "<selector-list>"
+  },
+  "scope-end": {
+    "syntax": "<selector-list>"
+  },
   "scroll()": {
-    "syntax": "scroll( [ <axis> || <scroller> ]? )"
+    "syntax": "scroll( [ <scroller> || <axis> ]? )"
   },
   "scroller": {
-    "syntax": "root | nearest"
+    "syntax": "root | nearest | self"
+  },
+  "selector-list": {
+    "syntax": "<complex-selector-list>"
   },
   "self-position": {
     "syntax": "center | start | end | self-start | self-end | flex-start | flex-end"
@@ -775,6 +814,9 @@
   },
   "single-animation": {
     "syntax": "<'animation-duration'> || <easing-function> || <'animation-delay'> || <single-animation-iteration-count> || <single-animation-direction> || <single-animation-fill-mode> || <single-animation-play-state> || [ none | <keyframes-name> ] || <single-animation-timeline>"
+  },
+  "single-animation-composition": {
+    "syntax": "replace | add | accumulate"
   },
   "single-animation-direction": {
     "syntax": "normal | reverse | alternate | alternate-reverse"
@@ -829,6 +871,9 @@
   },
   "symbol": {
     "syntax": "<string> | <image> | <custom-ident>"
+  },
+  "system-color": {
+    "syntax": "AccentColor | AccentColorText | ActiveText | ButtonBorder | ButtonFace | ButtonText | Canvas | CanvasText | Field | FieldText | GrayText | Highlight | HighlightText | LinkText | Mark | MarkText | SelectedItem | SelectedItemText | VisitedText"
   },
   "tan()": {
     "syntax": "tan( <calc-sum> )"
@@ -889,6 +934,12 @@
   },
   "translateZ()": {
     "syntax": "translateZ( <length> )"
+  },
+  "try-size": {
+    "syntax": "most-width | most-height | most-block-size | most-inline-size"
+  },
+  "try-tactic": {
+    "syntax": "flip-block || flip-inline || flip-start"
   },
   "type-or-unit": {
     "syntax": "string | color | url | integer | number | length | angle | time | frequency | cap | ch | em | ex | ic | lh | rlh | rem | vb | vi | vw | vh | vmin | vmax | mm | Q | cm | in | pt | pc | px | deg | grad | rad | turn | ms | s | Hz | kHz | %"
